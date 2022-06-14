@@ -224,6 +224,7 @@ func (aria2Service *Aria2Service) StartDownload(aria2Client *client.Aria2Client,
 		}
 
 		if onChainStatus == nil {
+			UpdateStatusAndLog(deal2Download, DEAL_STATUS_IMPORT_FAILED, "deal error before downloading", *onChainStatus, *onChainMessage)
 			logs.GetLogger().Info("no deal status for deal:", deal2Download.DealCid)
 			continue
 		}
